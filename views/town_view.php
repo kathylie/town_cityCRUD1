@@ -8,34 +8,32 @@ $connection = $db->getConnection();
 $town_city = new town_city($db);
 
 ?>        
-            <?php
-            $results = $town_city->displayAll(); 
-            foreach ($results as $result) {
-            ?>
-            <tr>
-                <td><?php echo $result['ID']; ?></td>
-                <td><?php echo $result['Name']; ?></td>
-                <td>
-                    <a href="town_city.php?id=<?php echo $result['id']; ?>">Edit</a>
-                    |
-                    <a href="town_delete.php?id=<?php echo $result['id']; ?>">Delete</a>
-                </td>
-            </tr>
-        <?php } ?>
+<?php
+$results = $town_city->getAll(); 
+foreach ($results as $result) {
+?>
+<tr>
+    <td><?php echo $result['ID']; ?></td>
+    <td><?php echo $result['Name']; ?></td>
+    <td>
+        <a href="town_city.php?id=<?php echo $result['ID']; ?>">Edit</a>
+        |
+        <a href="town_delete.php?id=<?php echo $result['ID']; ?>">Delete</a>
+    </td>
+</tr>
+<?php } ?>
 
-           
-        </tbody>
-    </table>
-        
-    <a class="button-link" href="town_add.php">Add New Record</a>
+</tbody>
+</table>
 
-        </div>
-        
-        <!-- Include the header -->
-  
-    <?php include('../templates/footer.html'); ?>
+<a class="button-link" href="town_add.php">Add New Record</a>
 
+</div>
 
-    <p></p>
+<!-- Include the header -->
+
+<?php include('../templates/footer.html'); ?>
+
+<p></p>
 </body>
 </html>
